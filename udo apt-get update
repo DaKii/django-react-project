@@ -1,0 +1,15 @@
+[0;1;31m●[0m nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+   Active: [0;1;31mfailed[0m (Result: exit-code) since Mon 2019-12-09 17:02:46 UTC; 1s ago
+     Docs: man:nginx(8)
+  Process: 13878 ExecStop=/sbin/start-stop-daemon --quiet --stop --retry QUIT/5 --pidfile /run/nginx.pid (code=exited, status=0/SUCCESS)
+  Process: 13417 ExecStart=/usr/sbin/nginx -g daemon on; master_process on; (code=exited, status=0/SUCCESS)
+  Process: 13940 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; [0;1;31m(code=exited, status=1/FAILURE)[0m
+ Main PID: 13419 (code=exited, status=0/SUCCESS)
+
+Dec 09 17:02:46 advanced-web-mapping systemd[1]: Starting A high performance web server and a reverse proxy server...
+Dec 09 17:02:46 advanced-web-mapping nginx[13940]: nginx: [emerg] BIO_new_file("/etc/letsencrypt/live/yoursite.com/fullchain.pem") failed (SSL: error:02001002:system library:fopen:No such file or directory:fopen('/etc/letsencrypt/live/yoursite.com/fullchain.pem','r') error:2006D080:BIO routines:BIO_new_file:no such file)
+Dec 09 17:02:46 advanced-web-mapping nginx[13940]: nginx: configuration file /etc/nginx/nginx.conf test failed
+Dec 09 17:02:46 advanced-web-mapping systemd[1]: [0;1;39m[0;1;31m[0;1;39mnginx.service: Control process exited, code=exited status=1[0m
+Dec 09 17:02:46 advanced-web-mapping systemd[1]: [0;1;39m[0;1;31m[0;1;39mnginx.service: Failed with result 'exit-code'.[0m
+Dec 09 17:02:46 advanced-web-mapping systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start A high performance web server and a reverse proxy server.[0m

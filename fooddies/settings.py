@@ -25,7 +25,7 @@ SECRET_KEY = '*r!%z3!4tng0wz8p+rm)rnb)d-sb$)j6oh14^nr(f!bel213(!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fooddies.space','localhost']
+ALLOWED_HOSTS = ['fooddies.space','localhost', '68.183.38.106']
 
 
 # Application definition
@@ -59,8 +59,7 @@ ROOT_URLCONF = 'fooddies.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-        ],
+        'DIRS': [os.path.join(BASE_DIR,'build'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -166,11 +165,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATEFILES_DIR = [
-        os.path.join(BASE_DIR, 'build/static')
+        os.path.join(BASE_DIR, 'build','static')
         ]
 
-STATIC_ROUTE = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_ROOT = os.path.join(BASE_DIR, 'build/static/')
 
 # Extra Settings
 
