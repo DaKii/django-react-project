@@ -94,7 +94,7 @@ export default class initMap extends Component {
           </Marker>
           {
             this.state.restaurants != null 
-            ? <GeoJSON data={this.state.restaurants} />
+            ? <GeoJSON key="my_key" data={this.state.restaurants} />
             : <div></div>
           }
         </Map>

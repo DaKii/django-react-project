@@ -12,7 +12,7 @@ const Home: React.FC<RouteComponentProps> = (props) => {
   const [error, setError] = React.useState(null);
 
   React.useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/')
+    axios.get('https://fooddies.space/api/')
     .then(res =>{
       if(res.data){
         setUsers(res.data.results)
@@ -24,7 +24,7 @@ const Home: React.FC<RouteComponentProps> = (props) => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Ionic Blank</IonTitle>
+          <IonTitle>Fooddies</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent className="ion-padding">
