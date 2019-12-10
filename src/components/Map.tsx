@@ -18,7 +18,7 @@ export default class initMap extends Component {
       lng: -0.09,
     },
     haveUserLocation: false,
-    restaurants: null,
+    restaurants: null as any,
     zoom: 1,
     bounds: ''
   }
@@ -45,7 +45,8 @@ export default class initMap extends Component {
   componentDidUpdate(){
     const map = this.mapRef.current
     if (map != null && this.state.haveUserLocation === true && this.state.bounds === ''){
-      const bounds = map.leafletElement.getBounds().getSouth() + ',' + map.leafletElement.getBounds().getWest() + ',' + map.leafletElement.getBounds().getNorth() + ',' + map.leafletElement.getBounds().getEast();
+       map.leafletElement.invalidateSize()
+       const bounds = map.leafletElement.getBounds().getSouth() + ',' + map.leafletElement.getBounds().getWest() + ',' + map.leafletElement.getBounds().getNorth() + ',' + map.leafletElement.getBounds().getEast();
       this.setState({
         bounds: bounds
       })
@@ -93,7 +94,7 @@ export default class initMap extends Component {
           </Marker>
           {
             this.state.restaurants != null 
-            ? <div></div>
+            ? <GeoJSON data={this.state.restaurants} />
             : <div></div>
           }
         </Map>
