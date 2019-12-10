@@ -1,10 +1,9 @@
 import React, { createRef, Component } from 'react'
-import { Map, TileLayer, Marker, Popup, GeoJSON, CircleMarker} from 'react-leaflet'
+import { Map, TileLayer, Marker, Popup, GeoJSON} from 'react-leaflet'
 import L from 'leaflet'
 import axios from 'axios'
 import osmtogeojson from 'osmtogeojson'
 import { GeoJsonObject } from 'geojson';
-
 
 
 //This creates a icon for the leaflet map because the icon given in react-leaflet is broken
@@ -13,11 +12,8 @@ const icon = L.icon({
   iconSize: [25,25]
 })
 
-
 //Class componenet for the Map Initialization
 export default class initMap extends Component {
-
-  //State for Map
   state = {
     location: {
       lat: 51.505,
@@ -32,7 +28,8 @@ export default class initMap extends Component {
   //Initial Variables
   mapRef = createRef<Map>() //References Map Component
   overpassQuery = 'amenity=restaurant' //Restaurant Query
-  
+
+
   //Starts when Component successfully mounts
   componentDidMount(){
     //Use GeoLocation API to find User location then set state their location
@@ -50,7 +47,7 @@ export default class initMap extends Component {
     });
 
   }
-
+  
   componentDidUpdate(){
     //Initial Local Variable
     const map = this.mapRef.current
@@ -91,13 +88,13 @@ export default class initMap extends Component {
   }
 
 
-
   render() {
     //Initialize the position
     const position: [number, number] = [this.state.location.lat, this.state.location.lng]
     
     //If user location has been found, render the map
     if(this.state.haveUserLocation)
+      console.log(this.state.haveUserLocation)
       return (
         //Using react-leaflet library and their componenents
         //Doesn't render GeoJson layer 
@@ -114,12 +111,12 @@ export default class initMap extends Component {
               Your location  <br /> Easily customizable.
             </Popup>
           </Marker>
-          <GeoJSON key={'geojson-01'} data={this.state.restaurants}/> 
+          {
+            this.state.restaurants != null 
+            ? <GeoJSON key="my_key" data={this.state.restaurants} />
+            : <div></div>
+          }
         </Map>
-        
-
       )
   }
 }
-
-

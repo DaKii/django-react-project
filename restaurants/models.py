@@ -1,7 +1,7 @@
 from django.contrib.gis.db import models
 
 # Create your models here.
-
+# Restaurant and User Models 
 class Restaurant(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=100)

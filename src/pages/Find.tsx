@@ -6,9 +6,6 @@ import Map from '../components/Map';
 
 // Functional Component with Ionic Framework
 const Find: React.FunctionComponent = () => {
-
-
-  //Uses Map component in order to render it
   return (
     <IonPage>
       <IonHeader>
