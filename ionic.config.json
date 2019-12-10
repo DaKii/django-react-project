@@ -1,5 +1,7 @@
 {
   "name": "fooddies",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
