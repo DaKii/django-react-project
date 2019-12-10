@@ -6,11 +6,10 @@ import axios from 'axios';
 
 const Home: React.FC<RouteComponentProps> = (props) => {
 
-
+  //Functional Components require hooks for states
   const [userInfo, setUsers] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(null);
 
+  //A hook which gets the fooddies api --Using Django RestFramework--
   React.useEffect(() => {
     axios.get('https://fooddies.space/api/')
     .then(res =>{
@@ -20,6 +19,7 @@ const Home: React.FC<RouteComponentProps> = (props) => {
     })
   }, []);
 
+  //Renders the users and their favourite restaurant
   return (
     <IonPage>
       <IonHeader>
@@ -32,7 +32,7 @@ const Home: React.FC<RouteComponentProps> = (props) => {
           <IonButton expand='block' onClick={() => props.history.push('/find')}>Find restaurants near you</IonButton>
         </IonItem>
         <IonList>
-          <h1>Registered Users and their favourite restaurants with comments</h1>         
+          <h1>Registered Users and their favourite restaurants</h1>         
           {
             Object.keys(userInfo).map((user, key) => {
               return(
@@ -42,7 +42,7 @@ const Home: React.FC<RouteComponentProps> = (props) => {
                     {
                       Object.keys(userInfo[key]['restaurant']).map((restaurant, count) => {
                         return(
-                          <h3>{userInfo[key]['restaurant'][count]['name']}</h3>
+                          <h4>{userInfo[key]['restaurant'][count]['name']}</h4>
                         )
                       })
                     }                    
