@@ -25,7 +25,7 @@ SECRET_KEY = '*r!%z3!4tng0wz8p+rm)rnb)d-sb$)j6oh14^nr(f!bel213(!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fooddies.space','localhost', '68.183.38.106']
+ALLOWED_HOSTS = ['www.fooddies.space','fooddies.space','localhost', '68.183.38.106']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'restaurants',
     'rest_framework',
     'corsheaders',
+    'webpack_loader'
 ]
 
 MIDDLEWARE = [
@@ -170,6 +171,8 @@ STATEFILES_DIR = [
 
 
 # Extra Settings
+
+
 
 #Cors Header 
 CORS_ORIGIN_ALLOW_ALL = True
